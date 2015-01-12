@@ -85,7 +85,7 @@ func Merge(compar func(*int64, *int64) int, dst []int64, srcs [][]int64) {
 
 			srcs[heapslice[0]/2] = srcs[heapslice[0]/2][:0]
 
-			heapslice = heap.Remove(hcompar, heapslice, 0)
+			heap.Remove(hcompar, &heapslice, 0)
 
 			heap.Another(hcompar, heapslice)
 
@@ -121,7 +121,7 @@ func Merge(compar func(*int64, *int64) int, dst []int64, srcs [][]int64) {
 
 			srcs[heapslice[min]/2] = srcs[heapslice[min]/2][:0]
 
-			heapslice = heap.Remove(hcompar, heapslice, min)
+			heap.Remove(hcompar, &heapslice, min)
 
 		}
 
